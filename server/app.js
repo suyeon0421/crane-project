@@ -1,11 +1,24 @@
 
 const express = require("express");
 const helmet = require("helmet");
+const cors = require("cors");
 
 const inquiryRoutes = require("./routes/inquiryRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 
 const app = express();
+
+app.use(
+  cors({
+    origin: [
+      "https://crane-project.vercel.app",
+      /^https:\/\/crane-project-[a-z0-9]+-suyeon19\.vercel\.app$/,
+      "http://localhost:5173",
+    ],
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 app.use(helmet());
 app.use(express.json({ limit: "20kb" }));
