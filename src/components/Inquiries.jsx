@@ -27,7 +27,7 @@ export default function Inquiries() {
     setError("");
 
     try {
-      const response = await fetch("/api/inquiries");
+      const response = await fetch(`${API_URL}/api/inquiries`);
       if (!response.ok) throw new Error("문의 목록을 불러오지 못했습니다.");
 
       const data = await response.json();
