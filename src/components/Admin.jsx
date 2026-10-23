@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+const API_URL = import.meta.env.VITE_API_URL || "";
+
 export default function Admin() {
   const [password, setPassword] = useState("");
   const [token, setToken] = useState("");
@@ -12,7 +14,7 @@ export default function Admin() {
     setMessage("로그인 중...");
 
     try {
-      const response = await fetch("/api/admin/login", {
+      const response = await fetch(`${API_URL}/api/admin/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ password }),
@@ -41,9 +43,9 @@ export default function Admin() {
 
     async function loadInquiries() {
       try {
-        const response = await fetch("/api/admin/inquiries", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const response = await fetch(`${API_URL}/api/admin/inquiries`, {
+            headers: { Authorization: `Bearer ${token}` },
+            });
 
         const data = await response.json();
 
@@ -69,7 +71,7 @@ export default function Admin() {
     }
 
     try {
-      const response = await fetch(`/api/admin/inquiries/${id}/answer`, {
+      const response = await fetch(`${API_URL}/api/admin/inquiries/${id}/answer`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
