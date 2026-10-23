@@ -6,7 +6,7 @@ export default function Header() {
     <header className="header">
       <div className="container header__inner">
         <Link to="/" className="header__brand">
-          <span className="header__name">NALA CRANE</span>
+          <span className="header__name">나라 크레인</span>
           <span className="header__caption">
             CRANE & LIFTING SERVICE
           </span>

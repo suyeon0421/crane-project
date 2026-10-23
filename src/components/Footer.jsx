@@ -11,7 +11,7 @@ export default function Footer() {
         </div>
 
         <div className="footer__info">
-          <p>나라크레인 | 경기도 용인시 처인구 백옥대로 1044</p>
+          <p>나라 크레인 | 경기도 용인시 처인구 백옥대로 1044</p>
           <p>대표 | 김영국 TEL : 010-3788-9221 </p>
         </div>
 
