@@ -1,5 +1,6 @@
-
 import { useEffect, useState } from "react";
+
+const API_URL = import.meta.env.VITE_API_URL || "";
 
 export default function Inquiries() {
   const [inquiries, setInquiries] = useState([]);
@@ -59,7 +60,7 @@ export default function Inquiries() {
     setSubmitting(true);
 
     try {
-      const response = await fetch("/api/inquiries", {
+      const response = await fetch(`${API_URL}/api/inquiries`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
@@ -115,8 +116,8 @@ export default function Inquiries() {
     setDetail(null);
 
     try {
-      const response = await fetch(
-        `/api/inquiries/${selectedId}/verify`,
+        const response = await fetch(
+        `${API_URL}/api/inquiries/${selectedId}/verify`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
